@@ -1,0 +1,17 @@
+# build output
+/flock
+
+# go
+*.test
+coverage.out
+
+# editor / OS
+.DS_Store
+*~
+.idea/
+.vscode/
+
+# regenerable intermediate audio (the CC0 source .flac IS committed in assets/)
+assets/geese-band.wav
+assets/geese-norm.wav
+assets/geese-clean.wav

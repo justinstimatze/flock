@@ -1,0 +1,31 @@
+# flock — a flock of geese on every keypress (systemd *user* service).
+# Installed by install.sh, which substitutes __FLOCK_BIN__ with the absolute path
+# of the built binary. Runs as your user (never root); audio reaches your
+# PipeWire/PulseAudio session over its unix socket.
+[Unit]
+Description=flock - a flock of geese on every keypress
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=__FLOCK_BIN__ goose
+Restart=on-failure
+RestartSec=2
+
+# Hardening: flock needs only raw-input read + the audio unix socket. None of
+# this blocks /dev/input (we do not set PrivateDevices). RestrictAddressFamilies=
+# AF_UNIX blocks creating any IP socket at the syscall level (seccomp) — "no
+# network", enforced without the namespace privilege that user services lack
+# (which is why we do NOT use PrivateNetwork here — it silently no-ops for users).
+NoNewPrivileges=true
+RestrictAddressFamilies=AF_UNIX
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+
+[Install]
+WantedBy=default.target
