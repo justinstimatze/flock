@@ -19,11 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-This MIT license covers the source code in this repository (the Go sources and
-the scripts under tools/). The bundled goose audio in honks/goose/ is CC0 1.0
-Universal (public domain); the synthesized audio in honks/goose-synth/ is
-original ffmpeg output. Both impose no conditions and redistribute freely. See
-CREDITS.md for sound provenance.
