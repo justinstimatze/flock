@@ -98,6 +98,11 @@ twice in a row), so even a handful of honks reads as a full, restless flock.
 
 ## Tracking the flock — testing
 
+If you're contributing, point git at the tracked hooks once per clone:
+```sh
+git config core.hooksPath hooks
+```
+
 Quickest check that audio works — no `input` group or key injection needed:
 ```sh
 ./flock --play goose   # plays every honk in the pack once, then exits
